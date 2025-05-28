@@ -32,7 +32,6 @@
   }
 }
 
-
 /* Exam Page Style */
 .Exams  {
   text-align: left;
@@ -43,17 +42,6 @@
 }
 
 /* Home page Style  */
-.Home H1{
-  margin-bottom: 60px;
-}
-.Home .Para{
-   width: 70%;
-   margin: auto;
-   margin-bottom: 40px;
-   padding: 5px;
-   border-top: 1px  solid gray;
-   border-bottom: 1px solid gray;
-}
 .Home a {
  text-decoration: none;
 }
@@ -65,7 +53,7 @@
 .Home a{
   transform: rotateY(360deg) !important;
   transform-style: preserve-3d;
-    transition: 5s;
+  transition: 5s;
 }
 
 /* Content Style */
@@ -89,14 +77,4 @@
 }
 
 
-.hero-bg {
-  background: linear-gradient(-45deg, #1e3a8a, #9333ea, #3b82f6, #10b981);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
-}
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}

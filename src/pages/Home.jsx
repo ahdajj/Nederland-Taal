@@ -17,17 +17,7 @@ const SVG=[<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="
 function Home (){
 return(
     <div className="Home" dir="rtl">
-    <h1>الصفحة الرئيسية  </h1>
-    <div className='Para'>
-        <p>
-            مرحبًا بكم في منصتنا الأولى من نوعها لتعلّم اللغة الهولندية!
-        </p>
-        <p>
-            نقدّم لكم تجربة تعليمية متميزة مصممة خصيصًا للناطقين باللغة العربية، لمساعدتكم على تعلم الهولندية بطريقة سهلة ومبسطة.
-            سواء كنتم مبتدئين أو ترغبون في تطوير مستواكم، ستجدون هنا دروسًا تفاعلية، شروحات واضحة، وتمارين عملية تساعدكم على إتقان اللغة خطوة بخطوة.
-            ابدؤوا رحلتكم معنا اليوم نحو إتقان الهولندية وفتح آفاق جديدة للدراسة والعمل والحياة!
-        </p>
-    </div>
+      <Hero/>
     <Container className='d-flex flex-wrap  justify-content-center'>
     <Card className="text-center m-4 shadow " bg='success' border="success"  style={{ width: '30%' }} as={Link} to="/Content">
       <Card.Body>
