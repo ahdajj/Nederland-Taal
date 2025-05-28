@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import {Outlet, Link } from "react-router-dom"
 import { Navbar, Nav, Container ,Button} from 'react-bootstrap';
 import Login from '../Component/Login'
 
@@ -32,6 +32,7 @@ function NavBar (){
         </Container>
     </Navbar>
     {showModal && <Login onClose={HandelClose}/>}
+     <Outlet/>
     </nav>
     )
 }
