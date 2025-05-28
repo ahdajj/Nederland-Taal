@@ -60,16 +60,13 @@
 .Home a:hover svg{
   transform:scale(1.2);
   transform-style: preserve-3d;
-  transition: 2s;
+  transition: .5s;
 }
 .Home a{
   transform: rotateY(360deg) !important;
   transform-style: preserve-3d;
     transition: 5s;
 }
-/* .Home a:hover {
-  background-color: royalblue !important
- } */
 
 /* Content Style */
 .Content h1{

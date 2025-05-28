@@ -14,20 +14,20 @@ function NavBar (){
     setShowModal(false)
   }
     return(
-    <nav dir="rtl">
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top"  className="mb-4">
+    <nav>
+    <Navbar bg="dark" variant="dark" expand="lg" sticky="top"  className="mb-4"  dir="rtl">
         <Container>
           <Navbar.Brand  as={Link} to="/"> الصفحة الرئيسية </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav variant="underline" className="me-auto ">
+                <Nav variant="underline" className="mx-auto ">
                 <Nav.Link  as={Link} to="/Content" > المحتوى  </Nav.Link>
                 <Nav.Link  as={Link} to="/Exams"> الإمتحانات    </Nav.Link>
                 <Nav.Link  as={Link} to="/"> معلومات عن المطورين</Nav.Link>
                 </Nav>
           </Navbar.Collapse>
           <Button variant="outline-light" onClick={HandelClick}>
-            Login / Sign Up
+              تسجيل الدخول
           </Button>
         </Container>
     </Navbar>
