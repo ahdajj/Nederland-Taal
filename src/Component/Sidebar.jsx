@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import PDFViewer from "../Component/Pdfviewr"
+import './ComponentStyle.css'
 
 
 function Sidebar() {

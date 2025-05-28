@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import CloseButton from 'react-bootstrap/CloseButton';
-import './login.css'
+import './ComponentStyle.css'
 
 
 export default function FlipCardModal({ onClose }) {

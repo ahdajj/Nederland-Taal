@@ -56,27 +56,14 @@
   transition: 5s;
 }
 
-/* Content Style */
+/* Content page Style */
 .Content h1{
   margin-bottom: 60px;
 }
 
-/* Sidebar Style  */
-.Sidebar{
-  margin-top: 20px;
-}
 
-/* PdfViewr Style */
-.pdf-page-wrapper canvas {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  background-color: white;
-  padding: 0;
-  border: none;
-}
 
-/* Lesson style */
+/* Lesson page style */
 .Lesson h1{
   margin-bottom: 40px;
 }

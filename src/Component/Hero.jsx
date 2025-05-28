@@ -1,4 +1,4 @@
-import './Hero.css' 
+import './ComponentStyle.css'
 
 const Hero = () => {
   return (
