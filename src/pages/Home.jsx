@@ -17,41 +17,41 @@ const SVG=[<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="
 function Home (){
 return(
     <div className="Home" dir="rtl">
-      <Hero/>
-    <Container className='d-flex flex-wrap  justify-content-center'>
-    <Card className="text-center m-4 shadow " bg='success' border="success"  style={{ width: '30%' }} as={Link} to="/Content">
-      <Card.Body>
-        <Card.Title>{SVG[0]}</Card.Title>
-        <Card.Text>
-         ابدأ الدراسة
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    <Card className="text-center  m-4 shadow"   bg='info' border="info" style={{ width: '30%' }} as={Link} to="/Exams">
-      <Card.Body>
-        <Card.Title>{SVG[1]}</Card.Title>
-        <Card.Text>
-         الإمتحانات
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    <Card className="text-center  m-4 shadow " bg='warning' border="warning"  style={{ width: '30%' }}>
-      <Card.Body>
-        <Card.Title>{SVG[2]}</Card.Title>
-        <Card.Text>
-         قريبا....
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    <Card className="text-center  m-4 shadow" bg='light' border="light" style={{ width: '30%' }}>
-      <Card.Body>
-        <Card.Title>{SVG[3]}</Card.Title>
-        <Card.Text>
-        قريبا....
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    </Container>
+        <Hero/>
+        <Container className='d-flex flex-wrap  justify-content-center'>
+            <Card className="text-center m-4 shadow " bg='success' border="success"  style={{ width: '30%' }} as={Link} to="/Content">
+              <Card.Body>
+                <Card.Title>{SVG[0]}</Card.Title>
+                <Card.Text>
+                ابدأ الدراسة
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card className="text-center  m-4 shadow"   bg='info' border="info" style={{ width: '30%' }} as={Link} to="/Exams">
+              <Card.Body>
+                <Card.Title>{SVG[1]}</Card.Title>
+                <Card.Text>
+                الإمتحانات
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card className="text-center  m-4 shadow " bg='warning' border="warning"  style={{ width: '30%' }}>
+              <Card.Body>
+                <Card.Title>{SVG[2]}</Card.Title>
+                <Card.Text>
+                قريبا....
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card className="text-center  m-4 shadow" bg='light' border="light" style={{ width: '30%' }}>
+              <Card.Body>
+                <Card.Title>{SVG[3]}</Card.Title>
+                <Card.Text>
+                قريبا....
+                </Card.Text>
+              </Card.Body>
+            </Card>
+        </Container>
     </div>  
 )
 }

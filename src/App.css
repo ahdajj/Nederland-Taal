@@ -76,5 +76,26 @@
   border: none;
 }
 
+/* Lesson style */
+.Lesson h1{
+  margin-bottom: 40px;
+}
+.Lesson a{
+  text-decoration: none;
+}
+.Lesson .CardText{
+ transform: translateY(100px);
+}
+.Lesson .CardTitle{
+ transform: translateY(20px);
+}
+.Lesson a:hover .CardText {
+  transform: translateY(-15px);
+  transition: 2s;
+}
+.Lesson a:hover .CardTitle{
+    transform: translateY(-50px);
+  transition: 2s;
+}
 
 
