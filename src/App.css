@@ -78,11 +78,11 @@
 }
 .Lesson a:hover .CardText {
   transform: translateY(-15px);
-  transition: 2s;
+  transition: 1s;
 }
 .Lesson a:hover .CardTitle{
     transform: translateY(-50px);
-  transition: 2s;
+  transition: 1s;
 }
 
 

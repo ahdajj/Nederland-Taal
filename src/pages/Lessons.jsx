@@ -9,9 +9,9 @@ const Svg=<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="y
 function Lesson (){
     return(
         <div class="Lesson" dir='rtl'>
-            <h1>المحتوى</h1>
+            <h1>الدروس</h1>
             <Container className='d-flex flex-wrap  justify-content-center'>
-                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link}>
+                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
                         <Card.Body>
                             <Card.Title className='CardTitle'>2- أستخدامات (Het) </Card.Title>
                             <Card.Text className='CardText'>
@@ -20,7 +20,7 @@ function Lesson (){
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link}>
+                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
                         <Card.Body>
                             <Card.Title className='CardTitle'>4- الصفات</Card.Title>
                             <Card.Text className='CardText'>
@@ -29,7 +29,7 @@ function Lesson (){
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link}>
+                   <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
                         <Card.Body>
                             <Card.Title className='CardTitle'>Info Card Title </Card.Title>
                             <Card.Text className='CardText'>
@@ -38,7 +38,7 @@ function Lesson (){
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link}>
+                   <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
                         <Card.Body>
                             <Card.Title className='CardTitle'>Info Card Title </Card.Title>
                             <Card.Text className='CardText'>
