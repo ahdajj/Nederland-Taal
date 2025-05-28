@@ -1,9 +1,8 @@
-import React from 'react';
 import './Hero.css' 
 
 const Hero = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden hero-bg">
+    <div className="Hero">
        <h1> مرحبًا بكم في منصتنا الأولى من نوعها لتعلّم اللغة الهولندية!   </h1>
         <div className='Para'>
             <p>
