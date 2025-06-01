@@ -4,6 +4,6 @@ const UserController = require('../Controller/UserController')
 
 
 route.post('/Signup',UserController.Signup) 
-route.post('/logIn',)   
+route.post('/logIn', UserController.LogIn)   
 
 module.exports= route
