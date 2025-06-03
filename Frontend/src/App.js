@@ -22,5 +22,6 @@ function App() {
     </div>
   );
 }
-
+{/* <Route path="/login" element={!user ? <Login /> : <Navigate to="/home" />} /> */}
 export default App;
+ 
