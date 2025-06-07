@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import {Outlet, Link } from "react-router-dom"
 import { Navbar, Nav, Container ,Button} from 'react-bootstrap';
 import Login from '../Component/Login'
+import axios from "axios";
 
 function NavBar (){
   const [showModal, setShowModal] = useState(false);
+  const [user , setuser]=useState('')
+
+  useEffect(()=>{
+    axios.get('http://localhost:3500/getUser' , {
+  withCredentials: true
+})
+    .then(res => { 
+      console.log(res.data)
+      setuser(res.data)
+    })
+    .catch(err=>console.log(err))
+  },[showModal])
 
   const HandelClick =()=>{
     setShowModal(true)
@@ -26,9 +39,12 @@ function NavBar (){
                 <Nav.Link  as={Link} to="/"> معلومات عن المطورين</Nav.Link>
                 </Nav>
           </Navbar.Collapse>
-          <Button variant="outline-light" onClick={HandelClick}>
-              تسجيل الدخول
-          </Button>
+          {user ? <Button variant="outline-light" onClick={HandelClick}>
+              تسجيل الخروج
+          </Button> :  <Button variant="outline-light" onClick={HandelClick}>
+              تسجيل الدخول 
+          </Button> }
+       
         </Container>
     </Navbar>
     {showModal && <Login onClose={HandelClose}/>}
@@ -38,6 +54,12 @@ function NavBar (){
 }
 export default NavBar 
 
+  //  <Button variant="outline-light" onClick={HandelClick}>
+  //             تسجيل الدخول
+  //         </Button>
+  //         <Button variant="outline-light" onClick={HandelClick}>
+  //             تسجيل الدخول
+  //         </Button>
 {/*   <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
   <Container className="d-flex align-items-center justify-content-between">
 

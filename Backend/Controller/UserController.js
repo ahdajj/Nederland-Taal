@@ -72,6 +72,11 @@ const logout = (req,res)=>{
     res.json('LoggedOut')
 }
 
+const getUser = (req,res)=>{
+     res.json(req.user.fulName);
+}
+
+// middle ware
 const userAuth = (req,res,next)=>{
     if(req.cookies.Token){
         jwt.verify(req.cookies.Token , '1234' , function (err,decoded){
@@ -83,12 +88,15 @@ const userAuth = (req,res,next)=>{
         })
         next()
     } else {
-       res.json('Login first')
+        console.log('Login first')
+    //    res.json('Login first')
     }
 }
 
 module.exports ={
     Signup,
     LogIn,
-    logout
+    logout,
+    getUser,
+    userAuth
 }

@@ -10,7 +10,7 @@ import './ComponentStyle.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-function PDFViewer() {
+function PDFViewer({file}) {
   const [numPages, setNumPages] = useState();
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -35,7 +35,7 @@ function PDFViewer() {
             من 
             {' '}{numPages}
           </Card.Title>
-          <Document file="use.pdf" onLoadSuccess={onDocumentLoadSuccess}>
+          <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
             <div className="pdf-page-wrapper" >
             <Page scale='1' pageNumber={pageNumber} width='1000' />
             </div>

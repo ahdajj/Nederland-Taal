@@ -13,7 +13,7 @@ function Lesson (){
             <Container className='d-flex flex-wrap  justify-content-center'>
                     <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
                         <Card.Body>
-                            <Card.Title className='CardTitle'>2- أستخدامات (Het) </Card.Title>
+                            <Card.Title className='CardTitle'> أستخدامات (Het) </Card.Title>
                             <Card.Text className='CardText'>
                                       ابدأ الدرس 
                                            {Svg}
@@ -22,7 +22,7 @@ function Lesson (){
                     </Card>
                     <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
                         <Card.Body>
-                            <Card.Title className='CardTitle'>4- الصفات</Card.Title>
+                            <Card.Title className='CardTitle'> الصفات</Card.Title>
                             <Card.Text className='CardText'>
                                            ابدأ الدرس
                                            {Svg}
@@ -31,7 +31,7 @@ function Lesson (){
                     </Card>
                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
                         <Card.Body>
-                            <Card.Title className='CardTitle'>Info Card Title </Card.Title>
+                            <Card.Title className='CardTitle'>De_Het_Een </Card.Title>
                             <Card.Text className='CardText'>
                                           ابدأ الدرس
                                            {Svg}
