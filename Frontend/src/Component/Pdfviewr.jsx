@@ -40,11 +40,12 @@ function PDFViewer({file}) {
             <Page scale='1' pageNumber={pageNumber} width='1000' />
             </div>
           </Document>
-          <Button className="m-1" variant="success" onClick={HandelNext} disabled={pageNumber>=numPages}>next</Button>
-          <Button className="m-1" variant="primary" onClick={HandelBack} disabled={pageNumber===1} >Back</Button>
+          <Button className="m-1" variant="success" onClick={HandelNext} disabled={pageNumber>=numPages}>التالي</Button>
+          <Button className="m-1" variant="primary" onClick={HandelBack} disabled={pageNumber===1} >السابق</Button>
         </Card.Body>
       </Card>
     </div>
   );
 }
 export default PDFViewer
+
