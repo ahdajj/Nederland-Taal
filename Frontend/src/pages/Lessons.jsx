@@ -11,7 +11,7 @@ function Lesson (){
         <div class="Lesson" dir='rtl'>
             <h1>الدروس</h1>
             <Container className='d-flex flex-wrap  justify-content-center'>
-                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
+                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content" state={{lesson:'lesson1'}}>
                         <Card.Body>
                             <Card.Title className='CardTitle'> أستخدامات (Het) </Card.Title>
                             <Card.Text className='CardText'>
@@ -20,7 +20,7 @@ function Lesson (){
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
+                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content" state={{lesson:'lesson2'}}>
                         <Card.Body>
                             <Card.Title className='CardTitle'> الصفات</Card.Title>
                             <Card.Text className='CardText'>
@@ -29,7 +29,7 @@ function Lesson (){
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                   <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
+                   <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content" state={{lesson:'lesson1'}}>
                         <Card.Body>
                             <Card.Title className='CardTitle'>De_Het_Een </Card.Title>
                             <Card.Text className='CardText'>
