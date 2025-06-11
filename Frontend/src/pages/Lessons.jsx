@@ -29,7 +29,7 @@ function Lesson (){
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                   <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content" state={{lesson:'lesson1'}}>
+                   <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content" state={{lesson:'lesson3'}}>
                         <Card.Body>
                             <Card.Title className='CardTitle'>De_Het_Een </Card.Title>
                             <Card.Text className='CardText'>

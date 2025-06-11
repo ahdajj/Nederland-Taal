@@ -31,7 +31,7 @@ return(
               <Card.Body>
                 <Card.Title>{SVG[1]}</Card.Title>
                 <Card.Text>
-                الإمتحانات
+                تمارين
                 </Card.Text>
               </Card.Body>
             </Card>

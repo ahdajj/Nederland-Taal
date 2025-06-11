@@ -29,7 +29,6 @@ function Sidebar() {
                 </Nav.Item>
               )
             })}
-          
           </Nav>
         </Col>
         <Col sm={8}>

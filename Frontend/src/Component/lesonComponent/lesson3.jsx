@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import PDFViewer from "../Pdfviewr"
+import { Link } from 'react-router-dom';
 import '../ComponentStyle.css'
 
 const pdfFiles = [
@@ -27,7 +28,9 @@ function Sidebar() {
                 </Nav.Item>
               )
             })}
-          
+           <Nav.Item>
+                <Nav.Link as={Link} to='/Exams' state={{Exam:'Exam3'}}> تمارين </Nav.Link>
+            </Nav.Item>
           </Nav>
         </Col>
         <Col sm={8}>

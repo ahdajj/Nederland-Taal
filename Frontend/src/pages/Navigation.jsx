@@ -35,7 +35,7 @@ function NavBar (){
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav variant="underline" className="mx-auto ">
                 <Nav.Link  as={Link} to="/Lessons" > الدروس  </Nav.Link>
-                <Nav.Link  as={Link} to="/Exams"> الإمتحانات    </Nav.Link>
+                <Nav.Link  as={Link} to="/Exams"> تمارين    </Nav.Link>
                 <Nav.Link  as={Link} to="/"> معلومات عن المطورين</Nav.Link>
                 </Nav>
           </Navbar.Collapse>
