@@ -36,7 +36,7 @@ function NavBar (){
                 <Nav variant="underline" className="mx-auto ">
                 <Nav.Link  as={Link} to="/Lessons" > الدروس  </Nav.Link>
                 <Nav.Link  as={Link} to="/Exams"> تمارين    </Nav.Link>
-                <Nav.Link  as={Link} to="/"> معلومات عن المطورين</Nav.Link>
+                <Nav.Link  as={Link} to="/Aboutus"> معلومات عن المطورين</Nav.Link>
                 </Nav>
           </Navbar.Collapse>
           {user ? <Button variant="outline-light" onClick={HandelClick}>

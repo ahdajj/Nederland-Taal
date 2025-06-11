@@ -5,6 +5,7 @@ import Home from './pages/Home.jsx'
 import Content from './pages/Content.jsx'
 import Exams from './pages/Exams.jsx'
 import Lessons from'./pages/Lessons.jsx' 
+import Aboutus from'./pages/About.jsx'
  
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path="/Lessons" element={<Lessons />} />
                 <Route path="/Exams" element={<Exams />} />
                 <Route path="/Content" element={<Content />} />
+                <Route path="/Aboutus" element={<Aboutus/>}/>
               </Route>
             </Routes>
       </BrowserRouter>
