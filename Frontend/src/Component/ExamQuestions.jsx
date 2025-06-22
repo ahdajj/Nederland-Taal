@@ -3,21 +3,15 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Alert } from "react-bootstrap";
-import question1 from './lesonComponent/Exam1'
-import question2 from './lesonComponent/Exam2'
-import question3 from './lesonComponent/Exam3'
 
 
-const Examjs={
-   Exam1:question1,
-   Exam2:question2,
-   Exam3:question3
-}
+
+
 
 function HetEx({exam}){
     const [answers, setAnswers] = useState({});
     const [feedback, setFeedback] = useState({});
-    const ExamFile=Examjs[exam]
+    const ExamFile=exam
     
   
     const handleAnswers = (e) => {
@@ -38,7 +32,7 @@ function HetEx({exam}){
     const allAnswered = ExamFile.every((q) => answers[q.id]);
   
     return (
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} dir="ltr">
         <Container className="py-4">
           {ExamFile.map((q, index) => (
             <div key={index} className="mb-4">

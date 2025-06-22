@@ -1,4 +1,5 @@
-import HetEx from "../Component/ExamStand"
+import HetEx from "../Component/ExamQuestions"
+import ExamBar from'../Component/ExamBar'
 import { useNavigate, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
@@ -9,7 +10,8 @@ function Exams(){
     const navigate=useNavigate()
 
     useEffect(()=>{
-     setClk(Exam)
+        console.log(Exam)
+    //  setClk(Exam)
     },[])
     
 
@@ -28,16 +30,11 @@ function Exams(){
           console.log(clk)
     }
     return(
-        <div className="Exams">
+        <div className="Exams" dir="rtl">
             <h1>تمارين </h1>
             <button onClick={HandleBack} disabled={!clk}>Back</button>
-            {clk ? <HetEx exam={clk} /> :
-                <div>
-                    <button value='Exam1' onClick={HandelClick}>Exam1</button>
-                    <button value='Exam2' onClick={HandelClick}>Exam2</button>
-                    <button value='Exam3' onClick={HandelClick}>Exam3</button>
-                </div>
-            }
+            <ExamBar/>
+         
         </div>
     )
 }
