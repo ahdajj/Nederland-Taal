@@ -27,29 +27,35 @@ function NavBar (){
     setShowModal(false)
   }
     return(
-    <nav>
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top"  className="mb-4 opacity-75"  dir="rtl">
-        <Container>
-          <Navbar.Brand  as={Link} to="/"> الصفحة الرئيسية </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav variant="underline" className="mx-auto ">
-                <Nav.Link  as={Link} to="/Lessons" > الدروس  </Nav.Link>
-                <Nav.Link  as={Link} to="/Exams"> تمارين    </Nav.Link>
-                <Nav.Link  as={Link} to="/Aboutus"> معلومات عن المطورين</Nav.Link>
-                </Nav>
-          </Navbar.Collapse>
-          {user ? <Button variant="outline-light" onClick={HandelClick}>
-              تسجيل الخروج
-          </Button> :  <Button variant="outline-light" onClick={HandelClick}>
-              تسجيل الدخول 
-          </Button> }
-       
-        </Container>
-    </Navbar>
-    {showModal && <Login onClose={HandelClose}/>}
-     <Outlet/>
-    </nav>
+    <div>
+      <nav>
+      <Navbar bg="dark" variant="dark" expand="lg" sticky="top"  className="mb-4 opacity-75"  dir="rtl">
+          <Container>
+            <Navbar.Brand  as={Link} to="/"> الصفحة الرئيسية </Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav variant="underline" className="mx-auto ">
+                  <Nav.Link  as={Link} to="/Lessons" > الدروس  </Nav.Link>
+                  <Nav.Link  as={Link} to="/Exams"> تمارين    </Nav.Link>
+                  <Nav.Link  as={Link} to="/Aboutus"> معلومات عن المطورين</Nav.Link>
+                  </Nav>
+            </Navbar.Collapse>
+            {user ? <Button variant="outline-light" onClick={HandelClick}>
+                تسجيل الخروج
+            </Button> :  <Button variant="outline-light" onClick={HandelClick}>
+                تسجيل الدخول 
+            </Button> }
+        
+          </Container>
+      </Navbar>
+      {showModal && <Login onClose={HandelClose}/>}
+      
+      </nav>
+      <Outlet/>
+      <footer>
+        Footer
+      </footer>
+    </div>
     )
 }
 export default NavBar 

@@ -57,6 +57,14 @@
 }
 
 /* Content page Style */
+.Content {
+   background-image: url('/public/img2.jpg');
+   background-repeat: no-repeat;
+   background-size:cover;
+   background-position:unset;
+    /* height: 300px;          required or you won’t see the image */
+  background-attachment: fixed; /* makes it stay still on scroll */
+}
 .Content h1{
   margin-bottom: 60px;
 }
@@ -218,4 +226,3 @@
   fill: currentColor;
   color: rgba(255, 255, 255, 1);
 }
-

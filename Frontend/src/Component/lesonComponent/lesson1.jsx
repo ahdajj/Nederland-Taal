@@ -34,7 +34,7 @@ function Sidebar() {
             </Nav.Item>
           </Nav>
         </Col>
-        <Col sm={8}>
+        <Col sm={8} className='opacity-75'>
           <Tab.Content>
             {pdfFiles.map((item)=>{
               return(
