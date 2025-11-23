@@ -22,17 +22,13 @@ const Signup =(req,res)=>{  console.log(req.body)
             .then(()=>{
                 return res.json('saved')})
             .catch(err=>{
-                 console.log(err);
                 res.status(500).json('Error saving user')})
            }
         })
-       .catch(err =>{
-        console.log(err)
-         res.status(500).json('Database error')
-        })  
+       .catch(err =>{res.status(500).json('Database error')})  
 }
 
-const LogIn=(req,res)=>{
+const Login=(req,res)=>{
     if(!req.body.Email || !req.body.Password){
       return  res.status(400).json('Please fill all fields')
     }
@@ -45,7 +41,6 @@ const LogIn=(req,res)=>{
             let CorrectPass=bcrypt.compareSync(req.body.Password , user.Password)
                 if(CorrectPass){
                     let TokenData={
-                         id:user._id, 
                          fulName:user.FullName,
                          email:user.Email
                     }
@@ -61,7 +56,6 @@ const LogIn=(req,res)=>{
         }    
     })
     .catch(err=>{
-        console.log(err)
         res.status(500).json('Database error')
     })
 }
@@ -72,31 +66,41 @@ const logout = (req,res)=>{
     res.json('LoggedOut')
 }
 
-const getUser = (req,res)=>{
-     res.json(req.user.fulName);
-}
-
-// middle ware
-const userAuth = (req,res,next)=>{
-    if(req.cookies.Token){
-        jwt.verify(req.cookies.Token , '1234' , function (err,decoded){
-            if(err){
-                console.log('error with verify token')
-            } else {
-                req.user=decoded
-            }
-        })
-        next()
+const Auth= (req,res)=>{
+    const Token=req.cookies.Token
+    if(Token){
+        const decodedUser=jwt.verify(Token, '1234')
+        res.json({name:decodedUser.FullName})
     } else {
-        console.log('Login first')
-    //    res.json('Login first')
+        res.status(401).json('Invalid Token')
     }
 }
+// const getUser = (req,res)=>{
+//      res.json(req.user.fulName);
+// }
+
+// // middle ware
+// const userAuth = (req,res,next)=>{
+//     if(req.cookies.Token){
+//         jwt.verify(req.cookies.Token , '1234' , function (err,decoded){
+//             if(err){
+//                 console.log('error with verify token')
+//             } else {
+//                 req.user=decoded
+//             }
+//         })
+//         next()
+//     } else {
+//         console.log('Login first')
+//     //    res.json('Login first')
+//     }
+// }
 
 module.exports ={
     Signup,
-    LogIn,
+    Login,
     logout,
-    getUser,
-    userAuth
+    // getUser,
+    // userAuth,
+    Auth
 }

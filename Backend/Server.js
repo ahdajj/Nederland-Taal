@@ -7,11 +7,19 @@ const cors = require('cors');
 
 app.listen(3500, ()=>{console.log('Server Connected')})
 
+app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
   origin: 'http://localhost:3000',
-  credentials: true // if you're using cookies/auth headers , also we add the same in axios react
+  credentials: true 
 }));
 
-app.use(route)
+app.use('/api',route)
+
+
+// app.use(cors({
+//   origin: 'http://localhost:3000',
+//   credentials: true,
+//   methods: ['GET', 'POST' , 'Update' , 'Delete'] // restrict to GET and POST only
+// }));

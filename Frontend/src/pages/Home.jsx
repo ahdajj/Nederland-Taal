@@ -19,7 +19,7 @@ return(
     <div className="Home" dir="rtl">
         <Hero/>
         <Container className='d-flex flex-wrap  justify-content-center'>
-            <Card className="text-center m-4 shadow " bg='success' border="success"  style={{ width: '30%' }} as={Link} to="/Content">
+            <Card className="text-center m-4 shadow " bg='success' border="success"  style={{ width: '30%' }} as={Link} to="/Lessons">
               <Card.Body>
                 <Card.Title>{SVG[0]}</Card.Title>
                 <Card.Text>

@@ -73,50 +73,50 @@ export default function FlipCardModal({ onClose }) {
   }
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" dir="rtl">
         <div className="flip-card ">
             <div className={`flip-card-inner ${flipped ? "flipped" : ""}`}>
                 <div className="flip-card-front">
                         <form className="form">
                             <CloseButton aria-label="close" className="close" onClick={onClose} variant='white' />
-                            <p id="heading">Login</p>
+                            <p id="heading">تسجيل الدخول</p>
                             <div className="field">
                                {Svg[1]}
-                                <input autoComplete="off" placeholder="Username" className="input-field" type="text" name="Email" value={user.Email} onChange={HandelChange2}/>
+                                <input autoComplete="off" placeholder="الإيميل" className="input-field" type="text" name="Email" value={user.Email} onChange={HandelChange2}/>
                             </div>
                             <div className="field">
                                 {Svg[2]}
-                                <input placeholder="Password" className="input-field" type="password" name="Password" value={user.Password} onChange={HandelChange2}/>
+                                <input placeholder="كلمة السر" className="input-field" type="password" name="Password" value={user.Password} onChange={HandelChange2}/>
                             </div>
                             {status.type === 'error' && <p style={{color:'red'}}>{status.message}</p>}
                             <div className="btn">
-                                <button className="button1" onClick={HandelLogin}>&nbsp;&nbsp;Login&nbsp;&nbsp;</button>
+                                <button className="button1" onClick={HandelLogin}>&nbsp; تسجيل &nbsp; </button>
                             </div>
-                            <button className="button2" onClick={HandelFlip}>Switch</button>  
+                            <button className="button2" onClick={HandelFlip}> إنشاء حساب </button>  
                         </form>
                     </div>
                     <div className="flip-card-back">
                         <form className="form">
                             <CloseButton aria-label="close" className="close" onClick={onClose} variant='white' />
-                            <p id="heading">Login</p>
+                            <p id="heading">إنشاء حساب</p>
                             <div className="field">
                                 {Svg[0]}
-                                <input autoComplete="off" placeholder="Username" className="input-field" type="text" name="FullName"  value={newUser.FullName} onChange={HandelChange}/>
+                                <input autoComplete="off" placeholder="اسم المستخدم" className="input-field" type="text" name="FullName"  value={newUser.FullName} onChange={HandelChange}/>
                             </div>
                             <div className="field">
                                 {Svg[1]}
-                                <input autoComplete="off" placeholder="Email" className="input-field" type="text" name="Email" value={newUser.Email} onChange={HandelChange}/>
+                                <input autoComplete="off" placeholder="الإيميل" className="input-field" type="text" name="Email" value={newUser.Email} onChange={HandelChange}/>
                             </div>
                             <div className="field">
                                 {Svg[2]}
-                                <input placeholder="Password" className="input-field" type="password" name="Password" value={newUser.Password} onChange={HandelChange}/>
+                                <input placeholder="كلمة السر" className="input-field" type="password" name="Password" value={newUser.Password} onChange={HandelChange}/>
                             </div>
                             {status.type === 'error' && <p style={{color:'red'}}>{status.message}</p>}
                             {status.type === 'success' && <p style={{color:'green'}}>{status.message}</p>}
                             <div className="btn">
-                                <button className="button1" onClick={HandelSignup}>Sign Up</button>
+                                <button className="button1" onClick={HandelSignup}>&nbsp; إنشاء &nbsp;</button>
                             </div>
-                            <button className="button2" onClick={HandelFlip}>Switch</button> 
+                            <button className="button2" onClick={HandelFlip}>تسجيل الدخول</button> 
                         </form>
                     </div>
                 </div>

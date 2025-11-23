@@ -38,15 +38,33 @@ function Lesson (){
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                   <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content">
+                   <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content" state={{lesson:'lesson4'}}>
                         <Card.Body>
-                            <Card.Title className='CardTitle'>Info Card Title </Card.Title>
+                            <Card.Title className='CardTitle'> الضمائر </Card.Title>
                             <Card.Text className='CardText'>
                                            ابدأ الدرس
                                            {Svg}
                             </Card.Text>
                         </Card.Body>
                     </Card>  
+                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content" state={{lesson:'lesson5'}}>
+                        <Card.Body>
+                            <Card.Title className='CardTitle'> ضمائر الملكية </Card.Title>
+                            <Card.Text className='CardText'>
+                                           ابدأ الدرس
+                                           {Svg}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card bg='info' style={{ width: '30%' }}  className="text-center m-3 shadow overflow-hidden" as={Link} to="/Content" state={{lesson:'lesson6'}}>
+                        <Card.Body>
+                            <Card.Title className='CardTitle'>  ضمائر المفعول به </Card.Title>
+                            <Card.Text className='CardText'>
+                                           ابدأ الدرس
+                                           {Svg}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>    
             </Container>
         </div>
     )
