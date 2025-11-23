@@ -24,7 +24,7 @@ function Sidebar() {
   return (
     <div className="Sidebar">
     <Tab.Container  defaultActiveKey="tab1" >
-      <Row>
+      <Row className='m-0'>
         <Col sm={3} className='bg-secondary bg-gradient  bg-opacity-10 text-end py-4 mx-4 rounded-4' style={{ maxHeight: "50vh", overflowY: "auto" }}>
          <h2>المحتوى</h2>
           <Nav variant="pills" className="flex-column">
@@ -36,11 +36,11 @@ function Sidebar() {
               )
             })}
             <Nav.Item>
-                <Nav.Link as={Link} to='/Exams' state={{Exam:'Exam2'}}> تمارين </Nav.Link>
+                <Nav.Link as={Link} to='/Exams' state={{Exam:'Exam1'}}> تمارين </Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>
-        <Col sm={8}>
+        <Col sm={8} className='opacity-75'>
           <Tab.Content>
             {pdfFiles.map((item)=>{
               return(
