@@ -5,16 +5,51 @@ import Tab from 'react-bootstrap/Tab';
 import PDFViewer from "../Pdfviewr"
 import { Link } from 'react-router-dom';
 import '../ComponentStyle.css'
+import { useState } from 'react';
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useAuth } from '../../Authentication/AuthContext';
 
 const pdfFiles = [
   { key: "tab1", label: "الجزء 1", file: "./lessons/lesson1/1.pdf" },
   { key: "tab2", label: "الجزء 2", file: "./lessons/lesson1/2.pdf" },
   { key: "tab3", label: "الجزء 3", file: "./lessons/lesson1/3.pdf" },
-  { key: "tab4", label: "الجزء 4", file: "./lessons/lesson1/4.pdf"  },
-  { key: "tab5", label: "الجزء 5", file: "./lessons/lesson1/5.pdf"  },
+  { key: "tab4", label: "الجزء 4", file: "./lessons/lesson1/4.pdf" },
+  { key: "tab5", label: "الجزء 5", file: "./lessons/lesson1/5.pdf" },
 ];
 
 function Sidebar() {
+  const [track , setTrack]=useState({lessonId:'الدرس الأول',completedParts:["الجزء 1"],isCompleted:false ,totalParts:pdfFiles.length ,examId:'Exam1' })
+  const {user}=useAuth()
+
+    const  fetching =async () =>{
+         try{
+          const res= await axios.post('http://localhost:3500/api/Lessonprogress',track ,{withCredentials:true})
+          console.log(res.data)
+      } catch(err){
+        console.log(err)
+      }
+      }
+
+  useEffect(()=>{
+    if(user){
+        fetching()
+    }
+
+  },[track])
+
+  const HandleClick = (less)=>{
+       if (!track.completedParts.includes(less)) {
+          const updatedParts = [...track.completedParts, less];
+          const isDone = updatedParts.length === pdfFiles.length;
+          setTrack(prev => ({
+            ...prev,
+            completedParts: updatedParts,
+            isCompleted: isDone
+          }));
+  }
+  }
+
   return (
     <div className="Sidebar">
     <Tab.Container  defaultActiveKey="tab1" >
@@ -25,7 +60,7 @@ function Sidebar() {
             {pdfFiles.map((item , index)=>{
               return(
                 <Nav.Item key={index}>
-                  <Nav.Link eventKey={item.key}>{item.label}</Nav.Link>
+                  <Nav.Link eventKey={item.key} onClick={()=>HandleClick(item.label)}>{item.label}</Nav.Link>
                 </Nav.Item>
               )
             })}
@@ -34,11 +69,11 @@ function Sidebar() {
             </Nav.Item>
           </Nav>
         </Col>
-        <Col sm={8} className='opacity-75'>
+        <Col sm={8} className='opacity-75 '>
           <Tab.Content>
             {pdfFiles.map((item)=>{
               return(
-                <Tab.Pane eventKey={item.key}>
+                <Tab.Pane eventKey={item.key} key={item.key} >
                   <PDFViewer file={item.file}/>
                 </Tab.Pane>
               )  

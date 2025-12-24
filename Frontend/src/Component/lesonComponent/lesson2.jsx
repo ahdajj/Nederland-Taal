@@ -5,6 +5,10 @@ import Tab from 'react-bootstrap/Tab';
 import PDFViewer from "../Pdfviewr"
 import { Link } from 'react-router-dom';
 import '../ComponentStyle.css'
+import { useState } from 'react';
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useAuth } from '../../Authentication/AuthContext';
 
 const pdfFiles = [
   { key: "tab1", label: "الجزء 1", file: "./lessons/lesson2/1.pdf" },
@@ -21,6 +25,36 @@ const pdfFiles = [
 ];
 
 function Sidebar() {
+   const [track , setTrack]=useState({lessonId:'الدرس الثاني',completedParts:["الجزء 1"],isCompleted:false ,totalParts:pdfFiles.length ,examId:'Exam2' })
+    const {user}=useAuth()
+  
+      const  fetching =async () =>{
+           try{
+            const res= await axios.post('http://localhost:3500/api/Lessonprogress',track ,{withCredentials:true})
+            console.log(res.data)
+        } catch(err){
+          console.log(err)
+        }
+        }
+  
+    useEffect(()=>{
+      if(user){
+          fetching()
+      }
+  
+    },[track])
+  
+    const HandleClick = (less)=>{
+         if (!track.completedParts.includes(less)) {
+            const updatedParts = [...track.completedParts, less];
+            const isDone = updatedParts.length === pdfFiles.length;
+            setTrack(prev => ({
+              ...prev,
+              completedParts: updatedParts,
+              isCompleted: isDone
+            }));
+    }
+    }
   return (
     <div className="Sidebar">
     <Tab.Container  defaultActiveKey="tab1" >
@@ -31,7 +65,7 @@ function Sidebar() {
             {pdfFiles.map((item , index)=>{
               return(
                 <Nav.Item key={index}>
-                  <Nav.Link eventKey={item.key}>{item.label}</Nav.Link>
+                  <Nav.Link eventKey={item.key} onClick={()=>HandleClick(item.label)}>{item.label}</Nav.Link>
                 </Nav.Item>
               )
             })}

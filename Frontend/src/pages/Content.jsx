@@ -15,7 +15,6 @@ function Content (){
     const location=useLocation()
     const Lesson=location.state.lesson
     const LessonComponent = components[Lesson];
-    
     return (
         <div className="Content" dir="rtl">
             <h1>المحتوى</h1>

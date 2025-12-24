@@ -2,7 +2,7 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
-import Examquetions from './ExamQuestions'
+import ExamQuestions from './ExamQuestions'
 import './ComponentStyle.css'
 import question1 from './lesonComponent/Exam1'
 import question2 from './lesonComponent/Exam2'
@@ -19,15 +19,14 @@ const ExamQ =[
       { key: "Exam4", label: "تمارين الدرس 4", questions: question4 },
       { key: "Exam6", label: "تمارين الدرس 6", questions: question6 },
 ]
-function Sidebar() {
+function ExamBar() {
     const location=useLocation()
     const Exam=location.state?.Exam
-    console.log(Exam)
   return (
-    <div className="Sidebar">
+    <div className="ExamBar">
     <Tab.Container  defaultActiveKey={Exam} >
-      <Row>
-        <Col sm={3} className='bg-secondary bg-gradient  bg-opacity-10 text-end py-4 mx-4 rounded-4' style={{ maxHeight: "50vh", overflowY: "auto" }}>
+      <Row className='m-0'>
+        <Col sm={3} className='bg-secondary bg-gradient  bg-opacity-10 text-end py-4 mx-4 rounded-4' style={{ height: "40vh", overflowY: "auto" }}>
          <h2>المحتوى</h2>
           <Nav variant="pills" className="flex-column">
             {ExamQ.map((item , index)=>{
@@ -44,11 +43,10 @@ function Sidebar() {
             {ExamQ.map((item)=>{
               return(
                 <Tab.Pane eventKey={item.key}>
-                 <Examquetions exam={item.questions}/>
+                 <ExamQuestions exam={item.questions}  examId={item.key}/>
                 </Tab.Pane>
               )  
               })}
-             
           </Tab.Content>
         </Col>
       </Row>
@@ -58,6 +56,6 @@ function Sidebar() {
   
 }
 
-export default Sidebar;
+export default ExamBar;
 
  

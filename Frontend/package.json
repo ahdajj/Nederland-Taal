@@ -13,7 +13,7 @@
     "react-pdf": "^9.2.1",
     "react-scripts": "5.0.1"
   },
-   "scripts": {
+  "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

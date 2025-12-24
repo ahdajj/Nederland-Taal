@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+.App h1{
+  padding-top: 30px;   /* temparory to keep the main heading far from nav*/   
+}
 
 /* Exam Page Style */
 .Exams  {
@@ -34,7 +36,7 @@
    background-size:cover;
    background-position:unset;
     /* height: 300px;          required or you won’t see the image */
-  background-attachment: fixed; /* makes it stay still on scroll */
+  background-attachment: fixed;
 }
 .Content h1{
   margin-bottom: 60px;
@@ -196,4 +198,10 @@
 .sci li a:hover {
   fill: currentColor;
   color: rgba(255, 255, 255, 1);
+}
+
+.Profile table{
+  width: 95%;
+  margin: auto;
+  margin-top: 20px;
 }
