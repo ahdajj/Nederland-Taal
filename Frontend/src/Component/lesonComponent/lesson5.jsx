@@ -11,15 +11,16 @@ import { useEffect } from 'react';
 import { useAuth } from '../../Authentication/AuthContext';
 
 const pdfFiles = [
-  { key: "tab1", label: "الجزء 1", file: "./lessons/lesson3/1.pdf" },
-  { key: "tab2", label: "الجزء 2", file: "./lessons/lesson3/2.pdf" },
-  { key: "tab3", label: "الجزء 3", file: "./lessons/lesson3/3.pdf" },
-  { key: "tab4", label: "الجزء 4", file: "./lessons/lesson3/4.pdf"  },
+  { key: "tab1", label: "الجزء 1", file: "./lessons/lesson5/1.pdf" },
+  { key: "tab2", label: "الجزء 2", file: "./lessons/lesson5/2.pdf" },
+  { key: "tab3", label: "الجزء 3", file: "./lessons/lesson5/3.pdf" },
+  { key: "tab4", label: "الجزء 4", file: "./lessons/lesson5/4.pdf" },
+  { key: "tab5", label: "الجزء 5", file: "./lessons/lesson5/5.pdf" },
 ];
 
 
 function Sidebar() {
-   const [track , setTrack]=useState({lessonId:'الدرس الثالث',completedParts:["الجزء 1"],isCompleted:false ,totalParts:pdfFiles.length ,examId:'Exam3' })
+   const [track , setTrack]=useState({lessonId:'الدرس الخامس',completedParts:["الجزء 1"],isCompleted:false ,totalParts:pdfFiles.length ,examId:'Exam5' })
     const {user}=useAuth()
   
       const  fetching =async () =>{
@@ -49,6 +50,7 @@ function Sidebar() {
             }));
     }
     }
+  
   return (
     <div className="Sidebar">
     <Tab.Container  defaultActiveKey="tab1" >

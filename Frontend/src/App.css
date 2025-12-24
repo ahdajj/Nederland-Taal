@@ -1,35 +1,8 @@
 .App {
   text-align: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App h1{
+  padding-top: 30px;   /* temparory to keep the main heading far from nav*/   
 }
 
 /* Exam Page Style */
@@ -57,6 +30,14 @@
 }
 
 /* Content page Style */
+.Content {
+   background-image: url('/public/img2.jpg');
+   background-repeat: no-repeat;
+   background-size:cover;
+   background-position:unset;
+    /* height: 300px;          required or you won’t see the image */
+  background-attachment: fixed;
+}
 .Content h1{
   margin-bottom: 60px;
 }
@@ -85,4 +66,142 @@
   transition: 1s;
 }
 
+/* From Uiverse.io by Daniel1227k */ 
+/* Aboutus */
+.Aboutus{
+  width: 60%;
+  margin: auto;
+  margin-top: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+.Aboutus .card {
+  position: relative;
+  width: 200px;
+  height: 264px;
+  background: #f00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.Aboutus .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg,#03a9f4,#ff0058);
+}
+
+.Aboutus .card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg,#03a9f4,#ff0058);
+  filter: blur(30px);
+}
+
+.Aboutus .card b {
+  position: absolute;
+  inset: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.Aboutus .card img {
+  position: absolute;
+  z-index: 3;
+  scale: 0.8;
+  opacity: 0.25;
+  transition: 0.5s;
+}
+
+.Aboutus .card:hover img {
+  scale: 0.5;
+  opacity: 0.9;
+  transform: translateY(-70px);
+}
+
+.Aboutus .card .content {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.Aboutus .card:hover .content {
+  transform: scale(1);
+  bottom: 25px;
+}
+
+.Aboutus .content .title {
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1em;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.Aboutus .content .title span {
+  font-weight: 300;
+  font-size: 0.70em;
+}
+
+.Aboutus .content .sci {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.sci li {
+  list-style: none;
+}
+
+.sci li .fa-brands {
+  width: 14px;
+}
+
+.sci li .fa-facebook {
+  width: 10px;
+}
+
+.sci li a {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.2);
+  fill: currentColor;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.sci li a:hover {
+  fill: currentColor;
+  color: rgba(255, 255, 255, 1);
+}
+
+.Profile table{
+  width: 95%;
+  margin: auto;
+  margin-top: 20px;
+}

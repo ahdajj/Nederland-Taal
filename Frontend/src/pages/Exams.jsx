@@ -1,44 +1,37 @@
-import HetEx from "../Component/ExamStand"
-import { useNavigate, useLocation } from "react-router-dom"
-import { useEffect, useState } from "react"
+import ExamBar from'../Component/ExamBar'
+
 
 function Exams(){
-    const location=useLocation()
-    const Exam=location.state?.Exam
-    const [clk,setClk]=useState('')
-    const navigate=useNavigate()
-
-    useEffect(()=>{
-     setClk(Exam)
-    },[])
-    
-
-    const HandelClick=(e)=>{
-        e.preventDefault()
-        const m=e.target.value
-        setClk(m)
-    }
-
-    const HandleBack=(e)=>{
-        if(Exam){
-           navigate(-1)
-        }
-          e.preventDefault()
-          setClk('')
-          console.log(clk)
-    }
     return(
-        <div className="Exams">
+        <div className="Exams" dir="rtl">
             <h1>تمارين </h1>
-            <button onClick={HandleBack} disabled={!clk}>Back</button>
-            {clk ? <HetEx exam={clk} /> :
-                <div>
-                    <button value='Exam1' onClick={HandelClick}>Exam1</button>
-                    <button value='Exam2' onClick={HandelClick}>Exam2</button>
-                    <button value='Exam3' onClick={HandelClick}>Exam3</button>
-                </div>
-            }
+            <ExamBar/>
         </div>
     )
 }
 export default Exams
+
+
+
+///////////////////////////////// Back button 
+// import { useNavigate, useLocation } from "react-router-dom"
+// import { useEffect, useState } from "react"
+//   const [clk,setClk]=useState('')
+//   const navigate=useNavigate()
+//   const location=useLocation()
+//   const Exam=location.state?.Exam
+//       useEffect(()=>{
+//         console.log(Exam)
+//     //  setClk(Exam)
+//     },[])
+    
+//        const HandleBack=(e)=>{
+//         if(Exam){
+//            navigate(-1)
+//         }
+//           e.preventDefault()
+//           setClk('')
+//           console.log(clk)
+//     }
+
+//     <button onClick={HandleBack} disabled={!clk}>Back</button>

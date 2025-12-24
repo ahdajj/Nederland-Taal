@@ -1,8 +1,7 @@
 import { useState} from "react";
-import axios from "axios";
 import CloseButton from 'react-bootstrap/CloseButton';
 import './ComponentStyle.css'
-
+import { useAuth } from "../Authentication/AuthContext";
 
 const Svg=[<svg className="input-icon bi bi-person-fill" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 16 16">
   <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
@@ -13,48 +12,46 @@ const Svg=[<svg className="input-icon bi bi-person-fill" xmlns="http://www.w3.or
 </svg> ]
 
 export default function FlipCardModal({ onClose }) {
-  const [user , setuser]=useState({Email:'' ,Password:'' })
+  const [loguser , setloguser]=useState({Email:'' ,Password:'' })
   const [newUser , setnewUser] = useState({FullName:'', Email:'',Password:''})
   const [flipped, setFlipped] = useState(false);
   const [status, setStatus] = useState({ type: '', message: '' });
+  const {signup , login}=useAuth()
 
- const Signup =()=>{
-    axios.post('http://localhost:3500/Signup' , newUser)
-    .then(res=>{
-        console.log(res.data)
-        setStatus({type:'success' , message:'User Saved'})
+  const HandelSignup= async(e)=>{
+    e.preventDefault()
+    try{
+        const res= await signup(newUser)
+        setStatus({type:'success' , message:res})
         setTimeout(()=>{
         setFlipped(!flipped)
         setStatus({ type: '', message: '' })
         setnewUser({FullName:'', Email:'',Password:''})
         },1000)
-    })
-    .catch(err => setStatus({ type: 'error', message: err.response.data }));
- }
+    } catch (err){
+        setStatus({ type: 'error', message: err })
+    }
+  }
 
- const LogIn=()=>{
-    axios.post('http://localhost:3500/logIn', user ,{
-  withCredentials: true
-})
-    .then(res=>{
-        console.log(res)
-        setuser({Email:'',Password:''})
+  const HandelLogin= async (e)=>{
+    e.preventDefault()
+    try{
+      const res = await login(loguser)
+      console.log(res)
+      setStatus({type:'success' , message:res})
+      setTimeout(()=>{
+        setloguser({Email:'',Password:''})
+        setStatus({ type: '', message: '' })
         onClose()
-    })
-     .catch(err => setStatus({ type: 'error', message: err.response.data }));
- }
-
-  const HandelSignup=(e)=>{
-    e.preventDefault()
-    Signup()
+      },500)
+    } 
+    catch (err){
+      setStatus({ type: 'error', message: err })
+    }
+  
   }
 
-  const HandelLogin=(e)=>{
-    e.preventDefault()
-    LogIn()
-  }
-
-   const HandelChange=(e)=>{
+  const HandelChange=(e)=>{
     const name=e.target.name
     const value=e.target.value
     setnewUser((prev)=>({...prev,[name]:value}))
@@ -63,7 +60,7 @@ export default function FlipCardModal({ onClose }) {
   const HandelChange2=(e)=>{
     const name=e.target.name
     const value=e.target.value
-    setuser((prev)=>({...prev,[name]:value}))
+    setloguser((prev)=>({...prev,[name]:value}))
   }
   
   const HandelFlip = (e)=>{
@@ -73,50 +70,51 @@ export default function FlipCardModal({ onClose }) {
   }
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" dir="rtl">
         <div className="flip-card ">
             <div className={`flip-card-inner ${flipped ? "flipped" : ""}`}>
                 <div className="flip-card-front">
                         <form className="form">
                             <CloseButton aria-label="close" className="close" onClick={onClose} variant='white' />
-                            <p id="heading">Login</p>
+                            <p id="heading">تسجيل الدخول</p>
                             <div className="field">
                                {Svg[1]}
-                                <input autoComplete="off" placeholder="Username" className="input-field" type="text" name="Email" value={user.Email} onChange={HandelChange2}/>
+                                <input autoComplete="off" placeholder="الإيميل" className="input-field" type="text" name="Email" value={loguser.Email} onChange={HandelChange2}/>
                             </div>
                             <div className="field">
                                 {Svg[2]}
-                                <input placeholder="Password" className="input-field" type="password" name="Password" value={user.Password} onChange={HandelChange2}/>
+                                <input placeholder="كلمة السر" className="input-field" type="password" name="Password" value={loguser.Password} onChange={HandelChange2}/>
                             </div>
                             {status.type === 'error' && <p style={{color:'red'}}>{status.message}</p>}
+                            {status.type === 'success' && <p style={{color:'green'}}>{status.message}</p>}
                             <div className="btn">
-                                <button className="button1" onClick={HandelLogin}>&nbsp;&nbsp;Login&nbsp;&nbsp;</button>
+                                <button className="button1" onClick={HandelLogin}>&nbsp; تسجيل &nbsp; </button>
                             </div>
-                            <button className="button2" onClick={HandelFlip}>Switch</button>  
+                            <button className="button2" onClick={HandelFlip}> إنشاء حساب </button>  
                         </form>
                     </div>
                     <div className="flip-card-back">
                         <form className="form">
                             <CloseButton aria-label="close" className="close" onClick={onClose} variant='white' />
-                            <p id="heading">Login</p>
+                            <p id="heading">إنشاء حساب</p>
                             <div className="field">
                                 {Svg[0]}
-                                <input autoComplete="off" placeholder="Username" className="input-field" type="text" name="FullName"  value={newUser.FullName} onChange={HandelChange}/>
+                                <input autoComplete="off" placeholder="اسم المستخدم" className="input-field" type="text" name="FullName"  value={newUser.FullName} onChange={HandelChange}/>
                             </div>
                             <div className="field">
                                 {Svg[1]}
-                                <input autoComplete="off" placeholder="Email" className="input-field" type="text" name="Email" value={newUser.Email} onChange={HandelChange}/>
+                                <input autoComplete="off" placeholder="الإيميل" className="input-field" type="text" name="Email" value={newUser.Email} onChange={HandelChange}/>
                             </div>
                             <div className="field">
                                 {Svg[2]}
-                                <input placeholder="Password" className="input-field" type="password" name="Password" value={newUser.Password} onChange={HandelChange}/>
+                                <input placeholder="كلمة السر" className="input-field" type="password" name="Password" value={newUser.Password} onChange={HandelChange}/>
                             </div>
                             {status.type === 'error' && <p style={{color:'red'}}>{status.message}</p>}
                             {status.type === 'success' && <p style={{color:'green'}}>{status.message}</p>}
                             <div className="btn">
-                                <button className="button1" onClick={HandelSignup}>Sign Up</button>
+                                <button className="button1" onClick={HandelSignup}>&nbsp; إنشاء &nbsp;</button>
                             </div>
-                            <button className="button2" onClick={HandelFlip}>Switch</button> 
+                            <button className="button2" onClick={HandelFlip}>تسجيل الدخول</button> 
                         </form>
                     </div>
                 </div>

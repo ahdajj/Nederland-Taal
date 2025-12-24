@@ -11,15 +11,14 @@ import { useEffect } from 'react';
 import { useAuth } from '../../Authentication/AuthContext';
 
 const pdfFiles = [
-  { key: "tab1", label: "الجزء 1", file: "./lessons/lesson3/1.pdf" },
-  { key: "tab2", label: "الجزء 2", file: "./lessons/lesson3/2.pdf" },
-  { key: "tab3", label: "الجزء 3", file: "./lessons/lesson3/3.pdf" },
-  { key: "tab4", label: "الجزء 4", file: "./lessons/lesson3/4.pdf"  },
+  { key: "tab1", label: "الجزء 1", file: "./lessons/lesson6/1.pdf" },
+  { key: "tab2", label: "الجزء 2", file: "./lessons/lesson6/2.pdf" },
+  { key: "tab3", label: "الجزء 3", file: "./lessons/lesson6/3.pdf" },
 ];
 
 
 function Sidebar() {
-   const [track , setTrack]=useState({lessonId:'الدرس الثالث',completedParts:["الجزء 1"],isCompleted:false ,totalParts:pdfFiles.length ,examId:'Exam3' })
+   const [track , setTrack]=useState({lessonId:'الدرس السادس',completedParts:["الجزء 1"],isCompleted:false ,totalParts:pdfFiles.length ,examId:'Exam6' })
     const {user}=useAuth()
   
       const  fetching =async () =>{

@@ -48,3 +48,36 @@ const answers={q1:'✅ Correct!',q2:'✅ Correct!'}
   const allAnswered = questions.every((q) => answers[q.id]);
   console.log(allAnswered)
 
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////
+user = {
+  id:1,
+  FullName:,
+  Email:,
+  Password,
+  Lessons:{lesso1:[part1,part2] , lsson2:[]}
+  Exams:{Exam1:{attempt: , score} , Exam1:{attempt: , score}}
+}
+// user last online , updating me Authentication
+app.get("/api/me", async (req, res) => {
+  const token = req.cookies.token;
+  if (!token) return res.status(401).json({});
+
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+  await User.updateOne(
+    { id: decoded.id },
+    { lastOnline: new Date().toISOString() }
+  );
+
+  res.json({ email: decoded.email, id: decoded.id });
+});
